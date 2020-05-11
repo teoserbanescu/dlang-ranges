@@ -1,0 +1,11 @@
+10
+Derya 1
+Ebru 9
+John 7
+Derya 3
+Damla 10
+Kate 4
+Susan 9
+Kate 4
+Anna 9
+Damla 10
