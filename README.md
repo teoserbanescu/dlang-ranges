@@ -9,6 +9,6 @@ There are more operations used to test the behaviour of the ranges:
 * a composition of multiple operations
 
 To generate benchmarks, run the script with the following command:
-./benchmark <operation>
+./benchmark \<operation\>
 
-<operation> can be one of the following: iterate, filter, map, mapfilter
+\<operation\> can be one of the following: iterate, filter, map, mapfilter
