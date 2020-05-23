@@ -9,10 +9,10 @@ __gshared int gradeTotal;
 const string INPUT_FILE = "input/input.txt";
 
 void iterateRange(T)(T range) {
-	gradeTotal = 0;
-	foreach(student; range) {
-		gradeTotal += student.grade;
-	}
+    gradeTotal = 0;
+    foreach(student; range) {
+        gradeTotal += student.grade;
+    }
 }
 
 void compareBenchmarks(StudentRange schoolRange,
@@ -30,13 +30,13 @@ void compareBenchmarks(StudentRange schoolRange,
 
 
 void main(string[] args) {
-	Student[] students;
-	auto f = File(INPUT_FILE);
-	
-	readInput(f, students);
+    Student[] students;
+    auto f = File(INPUT_FILE);
 
-	auto schoolRange = StudentRange(students);
-	auto schoolContainer = StudentContainer(students);
+    readInput(f, students);
 
-	compareBenchmarks(schoolRange, schoolContainer, parse!uint(args[1]));
+    auto schoolRange = StudentRange(students);
+    auto schoolContainer = StudentContainer(students);
+
+    compareBenchmarks(schoolRange, schoolContainer, parse!uint(args[1]));
 }
