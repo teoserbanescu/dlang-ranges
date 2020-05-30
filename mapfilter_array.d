@@ -1,15 +1,15 @@
+/**
+    Apply combinations of filter and map functions on InputRanges and
+    opApply ranges and compare the benchmarks.
+ */
 import containers;
-import std.algorithm;
-import std.conv : to, parse;
-import std.datetime.stopwatch;
-import std.format;
-import std.stdio;
-import std.traits: ForeachType;
 import utils;
 
 const string INPUT_FILE = "input1.txt";
 
 struct FilterOpApplyResult(alias pred, Rng) {
+    import std.traits: ForeachType;
+
     Rng r;
     int opApply(int delegate(ForeachType!Rng) dlg) {
         foreach(item; r) {
@@ -25,6 +25,8 @@ auto filterOpApply(alias pred, Rng)(Rng r) {
 }
 
 struct MapOpApplyResult(alias fun, Rng) {
+    import std.traits: ForeachType;
+
     Rng r;
     int opApply(int delegate(typeof(fun(ForeachType!Rng.init))) dlg) {
         foreach(item; r) {
@@ -39,6 +41,10 @@ auto mapOpApply(alias fun, Rng)(Rng r) {
 
 void compareBenchmarks(StudentRange schoolRange,
     StudentContainer schoolContainer, uint nrRuns) {
+    import std.algorithm : filter, map, min;
+    import std.datetime.stopwatch : benchmark, Duration;
+    import std.stdio: writeln;
+
     /* Compose more filter and map calls, alternatively. */
     void f0() { schoolRange.map!(student =>
         Student(student.name, (min(student.grade + 1, 10))))
@@ -62,6 +68,9 @@ void compareBenchmarks(StudentRange schoolRange,
 }
 
 void main(string[] args) {
+    import std.conv : parse;
+    import std.stdio : File;
+
     Student[] students;
     auto f = File(INPUT_FILE);
 

@@ -1,9 +1,10 @@
 import containers;
-import std.datetime.stopwatch;
-import std.stdio;
+import std.datetime.stopwatch : Duration;
+import std.stdio : File;
 
 /* TODO: This is a temporary solution. Generate the input at runtime instead. */
 void readInput(File f, ref Student[] students) {
+
     int nrStudents;
     f.readf("%d\n", nrStudents);
 
@@ -25,6 +26,8 @@ double convertToMsecs(Duration result) {
 }
 
 void printRange(T)(T range) {
+    import std.stdio : writeln;
+
     foreach(elem; range) {
         write(elem, ' ');
     }
