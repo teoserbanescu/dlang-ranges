@@ -1,11 +1,15 @@
-import std.format;
+/**
+Containers based on InputRanges and OpApply Ranges
+ */
 
 struct Student {
     string name;
     int grade;
 
-    string toString() const {
-        return format("%s(%s)", name, grade);
+    @safe string toString() const {
+        import std.format : format;
+
+        return "%s(%s)".format(name, grade);
     }
 
     @property bool isMaxGrade() {

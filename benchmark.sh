@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eu
 
 benchmark_file="$1"_results.csv
 
@@ -17,8 +18,3 @@ for i in "${func_calls[@]}";
 		./"$1"_array "$i" >> $benchmark_file
 done
 
-# for i in "${my_array[*]}"; do echo "$i"; done
-
-# ./"$1"_array 10 >> "$1"_results.csv
-# ./"$1"_array 100 >> "$1"_results.csv
-# ./"$1"_array 1000 >> "$1"_results.csv
