@@ -2,11 +2,13 @@
     Iterate through InputRanges and opApply ranges and compare
     the benchmarks.
  */
+module iteration;
+
 import containers;
 import utils;
 
 __gshared int gradeTotal;
-const string INPUT_FILE = "input/input.txt";
+//const string INPUT_FILE = "input/input.txt";
 
 void iterateRange(T)(T range) {
     gradeTotal = 0;
@@ -14,7 +16,7 @@ void iterateRange(T)(T range) {
         gradeTotal += student.grade;
     }
 }
-
+/*
 void compareBenchmarks(StudentRange schoolRange,
     StudentContainer schoolContainer, uint nrRuns) {
     import std.datetime.stopwatch : benchmark, Duration;
@@ -29,10 +31,10 @@ void compareBenchmarks(StudentRange schoolRange,
 
     writeln(nrRuns, ",", convertToMsecs(f0Result),
         ",", convertToMsecs(f1Result));
-}
+}*/
 
 
-void main(string[] args) {
+/*void main(string[] args) {
     import std.stdio : File;
     import std.conv : parse;
 
@@ -46,3 +48,4 @@ void main(string[] args) {
 
     compareBenchmarks(schoolRange, schoolContainer, parse!uint(args[1]));
 }
+*/
