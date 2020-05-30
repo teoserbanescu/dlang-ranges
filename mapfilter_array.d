@@ -5,13 +5,15 @@
 import containers;
 import utils;
 
-const string INPUT_FILE = "input1.txt";
+const string INPUT_FILE = "input/input.txt";
 
 struct FilterOpApplyResult(alias pred, Rng) {
     import std.traits: ForeachType;
 
+    alias T = ForeachType!Rng;
     Rng r;
-    int opApply(int delegate(ForeachType!Rng) dlg) {
+
+    int opApply(int delegate(T) dlg) {
         foreach(item; r) {
             if(pred(item)) {
                 if(int rc = dlg(item)) return rc;
@@ -27,8 +29,10 @@ auto filterOpApply(alias pred, Rng)(Rng r) {
 struct MapOpApplyResult(alias fun, Rng) {
     import std.traits: ForeachType;
 
+    alias T = ForeachType!Rng;
     Rng r;
-    int opApply(int delegate(typeof(fun(ForeachType!Rng.init))) dlg) {
+
+    int opApply(int delegate(typeof(fun(T.init))) dlg) {
         foreach(item; r) {
             if(int rc = dlg(fun(item))) return rc;
         }

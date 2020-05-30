@@ -9,9 +9,11 @@ const string INPUT_FILE = "input/input.txt";
 
 struct FilterOpApplyResult(alias pred, Rng) {
     import std.traits: ForeachType;
-
+    
+    alias T = ForeachType!Rng;
     Rng r;
-    int opApply(int delegate(ForeachType!Rng) dlg) {
+
+    int opApply(int delegate(T) dlg) {
         foreach(item; r) {
             if(pred(item)) {
                 if(int rc = dlg(item)) return rc;
