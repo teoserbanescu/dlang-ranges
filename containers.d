@@ -10,10 +10,6 @@ struct Student {
 
         return "%s(%s)".format(name, grade);
     }
-
-    @property bool isMaxGrade() {
-        return grade == 10;
-    }
 }
 
 struct StudentRange {
