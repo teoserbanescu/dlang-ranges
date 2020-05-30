@@ -1,7 +1,6 @@
 /**
 Containers based on InputRanges and OpApply Ranges
  */
-
 struct Student {
     string name;
     int grade;

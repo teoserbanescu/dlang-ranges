@@ -12,3 +12,6 @@ To generate benchmarks, run the script with the following command:
 ./benchmark \<operation\>
 
 \<operation\> can be one of the following: iterate, filter, map, mapfilter
+
+If you want to run the operations without using the script, use the file run_benchmaks.d.
+Usage: ./run_benchmarks <operation> <number_of_runs>

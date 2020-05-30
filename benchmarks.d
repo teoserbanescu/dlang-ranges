@@ -1,10 +1,14 @@
+/**
+    This file runs benchmarks for different functions
+    using InputRanges and opApply ranges.
+ */
 import containers;
 import utils;
 import std.datetime.stopwatch : Duration;
 
 void compareIteration(StudentRange schoolRange,
     StudentContainer schoolContainer, uint nrRuns) {
-    import iteration : iterateRange;
+    import operations : iterateRange;
     import std.datetime.stopwatch : benchmark, Duration;
     import std.stdio : writeln;
 
@@ -21,7 +25,7 @@ void compareIteration(StudentRange schoolRange,
 
 void compareFilter(StudentRange schoolRange,
     StudentContainer schoolContainer, uint nrRuns) {
-    import filter : filterOpApply;
+    import operations : filterOpApply;
     import std.algorithm : filter;
     import std.datetime.stopwatch : benchmark, Duration;
     import std.stdio: writeln;
@@ -40,7 +44,7 @@ void compareFilter(StudentRange schoolRange,
 
 void compareMap(StudentRange schoolRange,
     StudentContainer schoolContainer, uint nrRuns) {
-    import map : mapOpApply;
+    import operations : mapOpApply;
     import std.algorithm : map, min;
     import std.datetime.stopwatch : benchmark, Duration;
     import std.stdio: writeln;
@@ -61,8 +65,8 @@ void compareMap(StudentRange schoolRange,
 
 void compareMapFilter(StudentRange schoolRange,
     StudentContainer schoolContainer, uint nrRuns) {
-    import filter : filterOpApply;
-    import map : mapOpApply;
+    import operations : filterOpApply;
+    import operations : mapOpApply;
     import std.algorithm : filter, map, min;
     import std.datetime.stopwatch : benchmark, Duration;
     import std.stdio: writeln;
